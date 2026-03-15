@@ -22,10 +22,10 @@ export interface DatabaseConfig {
 export const CONFIG = Object.freeze({
     promptConfig: JSON.parse(readFileSync(promptsFiles.answerPrompt, 'utf-8')),
     templateText: readFileSync(promptsFiles.template, 'utf-8'),
-    output: {
-        answersFolder: './respostas',
-        fileName: 'resposta',
-    },
+    // output: {
+    //     answersFolder: './respostas',
+    //     fileName: 'resposta',
+    // },
     neo4j: {
         url: process.env.NEO4J_URI!,
         username: process.env.NEO4J_USER!,
@@ -75,5 +75,8 @@ export const CONFIG = Object.freeze({
     },
     similarity: {
         topK: 3,
+    },
+    server: {
+        port: Number(process.env.PORT ?? 3000),
     },
 });
